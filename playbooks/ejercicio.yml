@@ -1,0 +1,23 @@
+---
+  hosts: nodo
+  paquetes:
+    - httpd
+    - dovecot
+    - squirrelmail
+    - postfix
+  servicios:
+    - httpd
+    - dovecot
+    - squirrelmail
+    - postfix  
+
+  tasks:
+  - name: Instalacion de paquetes
+    apt:
+      name: '{{ paquetes }}'
+      state: present
+  - name: alta de servicios
+    service:
+      name: '{{ servicios }}'
+      state: reloaded
+      enabled: yes

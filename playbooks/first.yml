@@ -1,0 +1,8 @@
+---
+- hosts: database
+  become: true
+  tasks:
+  - name: Instalacion de paquete nginx
+    apt:
+     name: nginx
+     state: present
